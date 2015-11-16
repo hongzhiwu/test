@@ -1,23 +1,23 @@
 
 %%%%%%%%treading strategy
 clear;
-Date = xlsread('SPY_SSO_CALL_OPTION.xlsx','SPY_0116','A2:A220');
+Date = xlsread('SPY_SSO_OPTION.xlsx','SPY_0116','A2:A220');
 a = datenum(2015,1,2);
 Date = Date+a-Date(1);
 Date = datevec(Date);
 Date = Date(:,1:3);
 
-SPY =  xlsread('SPY_SSO_CALL_OPTION.xlsx','SPY_0116','B2:IS220');
+SPY =  xlsread('SPY_SSO_OPTION.xlsx','SPY_0116','B2:IS220');
 SPY_K = SPY(:,1:3:end);
 SPY_C = SPY(:,2:3:end);
 SPY_Vol = SPY(:,3:3:end);
-SPY_L = xlsread('SPY_SSO_CALL_OPTION.xlsx','SPY_price','G2:G220');
+SPY_L = xlsread('SPY_SSO_OPTION.xlsx','SPY_price','G2:G220');
 
-SSO =  xlsread('SPY_SSO_CALL_OPTION.xlsx','SSO_0116','B2:EF220');
+SSO =  xlsread('SPY_SSO_OPTION.xlsx','SSO_0116','B2:EF220');
 SSO_K = SSO(:,1:3:end);
 SSO_C = SSO(:,2:3:end);
 SSO_Vol = SSO(:,3:3:end);
-SSO_L = xlsread('SPY_SSO_CALL_OPTION.xlsx','SSO_price','G2:G220');
+SSO_L = xlsread('SPY_SSO_OPTION.xlsx','SSO_price','G2:G220');
 alpha = log(SSO_L)./log(SPY_L);
 
 T = length(alpha);
